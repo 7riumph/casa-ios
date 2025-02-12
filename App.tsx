@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import Button from 'src/components/Button';
@@ -47,12 +47,11 @@ function CustomTabBar({ navigation }) {
 }
 
 function TabNavigator() {
-  const { state, signout } = useContext(AuthContext);
   return (
     <Tab.Navigator
       screenOptions={{ headerShown: false }}
       tabBar={(props) => <CustomTabBar {...props} />}>
-      <Tab.Screen name="CaseContactListScreen" component={CaseContactListScreen} initialParams={{staySignedIn: state.staySignedIn}} />
+      <Tab.Screen name="CaseContactListScreen" component={CaseContactListScreen} />
       <Tab.Screen name="AccountScreen" component={AccountScreen} />
       <Tab.Screen name="CaseContactCreateScreen" component={CaseContactCreateScreen} />
       <Tab.Screen name="CaseContactDetailScreen" component={CaseContactDetailScreen} />
@@ -69,7 +68,7 @@ function MainApp() {
     tryLocalSignin();
   }, []);
   */
- 
+
   return (
     <NavigationContainer>
       <RootStack.Navigator>
