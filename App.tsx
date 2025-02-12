@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View } from 'react-native';
 import { Provider } from 'react-redux';
 import Button from 'src/components/Button';
